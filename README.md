@@ -118,6 +118,9 @@ symbols. Generate those documents from code after implementation exists.
 The skills create only the L3 document types that the application needs. For example, they do not
 create a Deployment document when the input has no deployment requirement.
 
+See [SpecSpec layers and file anatomy](docs/specspec-layers.md) for a diagram of all five layers,
+their concept types, and each concept's document sections.
+
 ## Included skills
 
 | Skill | Use it when | Input | Result |
