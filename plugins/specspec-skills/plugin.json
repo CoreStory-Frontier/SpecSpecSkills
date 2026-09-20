@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "specspec-skills",
+  "version": "0.2.0",
+  "description": "Create, review, and correct top-down SpecSpec design documents from L4 through L1.",
+  "author": {
+    "name": "Charath",
+    "email": "charath@corestory.ai",
+    "url": "https://github.com/charathram"
+  },
+  "homepage": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+  "repository": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+  "keywords": [
+    "specspec",
+    "software-design",
+    "specification",
+    "architecture"
+  ]
+}

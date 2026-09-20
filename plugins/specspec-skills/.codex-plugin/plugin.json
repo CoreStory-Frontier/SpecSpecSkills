@@ -1,0 +1,36 @@
+{
+  "name": "specspec-skills",
+  "version": "0.2.0",
+  "description": "Create, review, and correct top-down SpecSpec design documents from L4 through L1.",
+  "author": {
+    "name": "Charath",
+    "email": "charath@corestory.ai",
+    "url": "https://github.com/charathram"
+  },
+  "homepage": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+  "repository": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+  "keywords": [
+    "specspec",
+    "software-design",
+    "specification",
+    "architecture"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SpecSpec Skills",
+    "shortDescription": "Create and review SpecSpec designs from L4 to L1.",
+    "longDescription": "Create, decompose, review, and correct SpecSpec product, system, component, and module documents.",
+    "developerName": "Charath",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+    "defaultPrompt": [
+      "Create a complete SpecSpec design from this application description.",
+      "Review this SpecSpec design for architecture gaps.",
+      "Correct the findings in this SpecSpec review."
+    ]
+  }
+}

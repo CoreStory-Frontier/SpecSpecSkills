@@ -1,0 +1,45 @@
+name: Release plugins
+
+"on":
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Package and release plugins
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the tag
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Package plugins
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python3 scripts/prepare_plugin_release.py --tag "$RELEASE_TAG" --output dist
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          release_flags=(--verify-tag --generate-notes --title "$RELEASE_TAG")
+          if [[ "$RELEASE_TAG" == *-* ]]; then
+            release_flags+=(--prerelease)
+          fi
+          gh release create "$RELEASE_TAG" "${release_flags[@]}" dist/*

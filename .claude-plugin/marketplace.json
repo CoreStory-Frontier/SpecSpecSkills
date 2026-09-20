@@ -1,0 +1,32 @@
+{
+  "name": "specspec-skills",
+  "owner": {
+    "name": "Charath",
+    "email": "charath@corestory.ai",
+    "url": "https://github.com/charathram"
+  },
+  "description": "Skills for top-down SpecSpec design from L4 through L1.",
+  "version": "0.2.0",
+  "plugins": [
+    {
+      "name": "specspec-skills",
+      "displayName": "SpecSpec Skills",
+      "source": "./plugins/specspec-skills",
+      "description": "Create, decompose, review, and correct SpecSpec product, system, component, and module documents.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Charath",
+        "email": "charath@corestory.ai",
+        "url": "https://github.com/charathram"
+      },
+      "homepage": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+      "repository": "https://github.com/CoreStory-Frontier/SpecSpecSkills",
+      "category": "Development",
+      "tags": [
+        "specspec",
+        "software-design",
+        "architecture"
+      ]
+    }
+  ]
+}
