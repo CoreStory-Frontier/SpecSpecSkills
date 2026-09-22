@@ -18,7 +18,7 @@ invalid reservations, and equipment history through a browser.
 | Operation | Input | Output | Outcome |
 |---|---|---|---|
 | `[inferred]` Add equipment | Equipment details | Equipment result | Creates one distinct Equipment record. |
-| `[inferred]` Record maintenance period | Equipment item and period | Maintenance Period result | Makes the item unavailable and invalidates overlapping Reservations. |
+| `[inferred]` Record maintenance period | Equipment item and period | Maintenance Period result | Makes the item unavailable and invalidates overlapping confirmed Reservations. |
 | `[inferred]` Cancel invalid reservation | Invalid Reservation | Reservation result | Changes the invalid Reservation to cancelled. |
 | `[inferred]` Record pickup | Reservation and pickup time | Equipment Use result | Records the employee's pickup. |
 | `[inferred]` Record return | Equipment Use and return time | Equipment Use result | Records the employee's return. |

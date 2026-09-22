@@ -17,7 +17,7 @@ reservations through a browser.
 
 | Operation | Input | Output | Outcome |
 |---|---|---|---|
-| `[inferred]` Find available equipment | Start time and end time | Matching Equipment items | Shows items with no overlapping Reservation or Maintenance Period. |
+| `[inferred]` Find available equipment | Start time and end time | Matching Equipment items | Shows items with no overlapping confirmed Reservation or Maintenance Period. |
 | `[inferred]` Create reservation | Equipment item, start time, and end time | Reservation result | Confirms one conflict-free Reservation or rejects the request. |
 | `[inferred]` View own reservations | Actor context | Reservation list | Shows only Reservations for the employee. |
 
@@ -32,7 +32,7 @@ reservations through a browser.
 
 # Errors
 
-- The product rejects a Reservation that overlaps another Reservation.
+- The product rejects a Reservation that overlaps another confirmed Reservation.
 - The product rejects a Reservation that overlaps a Maintenance Period.
 - `[inferred]` The product rejects a period whose end time is not after its start time.
 - `[inferred]` The product does not perform an action when actor context is absent or does not

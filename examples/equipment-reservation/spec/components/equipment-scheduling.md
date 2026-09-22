@@ -19,9 +19,9 @@ reserved or blocked for maintenance.
 - Find Equipment that is available for a selected period.
 - Create one conflict-free Reservation for a successful request.
 - Prevent overlapping confirmed Reservations for one Equipment item.
-- Record Maintenance Periods and make overlapping Reservations invalid.
+- Record Maintenance Periods and make overlapping confirmed Reservations invalid, including after pickup.
 - Cancel a Reservation only when later maintenance made it invalid.
-- `[inferred]` Change a Reservation to completed when Equipment Handoff reports a recorded return.
+- Complete a confirmed Reservation on recorded return; preserve invalid and cancelled states.
 - Preserve the confirmed concurrent-request rule: one request succeeds and the other fails.
 - `[inferred]` Produce candidate reservation, availability, and invalid-reservation signals.
 - It does not own Equipment Use, pickup, return, or handoff history.

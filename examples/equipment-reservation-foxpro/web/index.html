@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Equipment Reservation — FoxPro reference</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Equipment Reservation</h1>
+    <p>Visual FoxPro 9 reference implementation.</p>
+    <form action="http://localhost/eq" method="get">
+      <label>Actor
+        <select name="actor">
+          <option value="ALICE">Alice — employee</option>
+          <option value="BOB">Bob — employee</option>
+          <option value="CASEY">Casey — custodian</option>
+          <option value="DREW">Drew — both roles</option>
+        </select>
+      </label>
+      <label>Action
+        <select name="action">
+          <option value="SEARCH">Search</option>
+          <option value="RESERVE">Reserve</option>
+          <option value="MINE">My reservations</option>
+          <option value="ADD">Add equipment</option>
+          <option value="MAINT">Record maintenance</option>
+          <option value="CANCEL">Cancel invalid reservation</option>
+          <option value="PICKUP">Record pickup</option>
+          <option value="RETURN">Record return</option>
+          <option value="HISTORY">Equipment history</option>
+        </select>
+      </label>
+      <label>Equipment ID <input name="equip_id" value="1"></label>
+      <label>Reservation ID <input name="rsv_id" value="1"></label>
+      <label>Use ID <input name="use_id" value="1"></label>
+      <label>Start <input name="start" value="2030-01-01 10:00:00"></label>
+      <label>End <input name="end" value="2030-01-01 11:00:00"></label>
+      <label>Name <input name="name" value="Camera"></label>
+      <label>Description <input name="description" value="Shared kit"></label>
+      <label>Reason <input name="reason" value="Service"></label>
+      <button type="submit">Submit</button>
+    </form>
+    <pre id="result">No request sent.</pre>
+  </main>
+</body>
+</html>

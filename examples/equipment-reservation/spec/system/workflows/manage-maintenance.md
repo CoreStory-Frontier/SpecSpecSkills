@@ -24,14 +24,15 @@ that the later Maintenance Period makes invalid.
    - `[inferred]` If the period is invalid, the system rejects the request.
 5. The system records the Maintenance Period for the Equipment item.
 6. The system makes the Equipment item unavailable during that period.
-7. The system finds each Reservation that overlaps the new Maintenance Period.
+7. The system finds each confirmed Reservation that overlaps the new Maintenance Period.
 8. The system marks each overlapping Reservation as invalid.
 9. `[inferred]` The custodian receives the Maintenance Period and the set of invalid Reservations.
 
 # Outcomes
 
 - The Equipment item is unavailable during the Maintenance Period.
-- Each Reservation that the later Maintenance Period overlaps becomes invalid.
+- Each confirmed Reservation that the later Maintenance Period overlaps becomes invalid, including after pickup.
+- Cancelled and completed Reservations keep their state.
 - Non-overlapping Reservations keep their current state.
 
 # Related

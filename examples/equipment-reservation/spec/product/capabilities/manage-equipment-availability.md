@@ -18,13 +18,14 @@ Custodians keep equipment records and availability current.
 - A custodian blocks an equipment item for a maintenance period.
 - The product makes an item unavailable during its maintenance period.
 - A custodian can cancel an invalid reservation.
-- A later maintenance period makes an overlapping reservation invalid.
+- A later maintenance period makes an overlapping confirmed reservation invalid, including after pickup.
+- Cancelled and completed reservations keep their state.
 
 # Acceptance
 
 - Given two physical equipment items, when a custodian adds both items, then the product creates two distinct equipment records.
 - Given a custodian records a maintenance period, when that period overlaps an employee search, then the product shows the item as unavailable.
-- Given a later maintenance period overlaps a reservation, when the product records the period, then the product treats the reservation as invalid.
+- Given a later maintenance period overlaps a confirmed reservation, when the product records the period, then the product treats the reservation as invalid.
 - Given a custodian identifies a reservation as invalid, when the custodian cancels it, then the product shows the reservation as cancelled.
 
 # Realized by

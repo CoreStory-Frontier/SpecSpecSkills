@@ -23,9 +23,10 @@ consistency boundary for availability, time conflicts, and Reservation state cha
 - `[inferred]` Prevent overlapping confirmed Reservations for one Equipment item.
 - `[inferred]` Confirm one request and reject the other when concurrent Reservation requests
   conflict.
-- `[inferred]` Record Maintenance Periods and mark overlapping Reservations as invalid.
+- Record Maintenance Periods and invalidate overlapping confirmed Reservations, including after pickup.
 - `[inferred]` Cancel a Reservation only when later maintenance made it invalid.
-- `[inferred]` Change a Reservation to completed after Equipment Use Management records return.
+- Complete confirmed Reservations after return; preserve invalid and cancelled states.
+- Use UTC times and half-open periods. Only confirmed Reservations block booking availability.
 - `[inferred]` Produce candidate reservation, availability, and invalid-reservation signals.
 - `[inferred]` It does not own Equipment or Equipment Use records.
 
@@ -41,7 +42,7 @@ consistency boundary for availability, time conflicts, and Reservation state cha
 
 - `[inferred]` Conflict behavior evaluates Reservation and Maintenance Period overlap.
 - `[inferred]` Reservation lifecycle behavior controls valid Reservation state changes.
-- `[inferred]` Maintenance behavior blocks Equipment and invalidates overlapping Reservations.
+- Maintenance behavior blocks Equipment and invalidates overlapping confirmed Reservations only.
 - `[inferred]` Signal behavior describes candidate schedule outcomes.
 
 # Dependencies

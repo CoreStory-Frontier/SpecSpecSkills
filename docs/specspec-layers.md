@@ -3,7 +3,8 @@
 SpecSpec uses five abstraction layers. L4 states product intent. Each lower design layer adds
 more technical detail. L0 describes implemented source files and code symbols.
 
-This marketplace generates L4 through L1. Generate L0 from code after implementation exists.
+The design skills generate L4 through L1. `implement-spec` builds a new reference application and
+generates L0 from tested code in a separate implementation bundle.
 
 ```mermaid
 flowchart TB
@@ -32,6 +33,7 @@ flowchart TB
 - `Related` links point up to concepts that the current document supports.
 - `Decomposition` and `Evidence` links point down to more detailed concepts.
 - L1 is the terminal design layer in this marketplace.
+- In the implementation bundle, L1 links to L0 after code and tests exist.
 - L0 is exhaustive. It has one Source File document for each non-excluded source file.
 - Index files provide navigation. They are not concept documents and do not use these sections.
 

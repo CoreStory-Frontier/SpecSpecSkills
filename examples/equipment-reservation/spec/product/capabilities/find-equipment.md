@@ -16,13 +16,14 @@ Employees identify equipment that they can reserve for a defined start and end t
 
 - The product tracks each physical equipment item as a unique asset.
 - The employee supplies a reservation start time and end time.
-- The product shows an item as available only when no reservation overlaps the selected period.
+- The product shows an item as available only when no confirmed reservation overlaps the selected period.
+- Adjacent periods do not overlap. Invalid, cancelled, and completed reservations do not block availability.
 - The product shows an item as unavailable during a maintenance period.
 
 # Acceptance
 
 - Given an equipment item has no overlapping reservation or maintenance period, when an employee searches for the selected period, then the product shows the item as available.
-- Given an equipment item has an overlapping reservation, when an employee searches for the selected period, then the product does not show the item as available.
+- Given an equipment item has an overlapping confirmed reservation, when an employee searches for the selected period, then the product does not show the item as available.
 - Given an equipment item has a maintenance period that overlaps the selected period, when an employee searches, then the product does not show the item as available.
 
 # Realized by

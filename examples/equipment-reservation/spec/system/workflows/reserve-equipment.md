@@ -21,7 +21,7 @@ This workflow confirms one Reservation only when access, period, and availabilit
      a Reservation and reports that the action is unavailable.
 4. `[inferred]` The system checks that the end time is after the start time.
    - `[inferred]` If the period is invalid, the system rejects the request.
-5. The system checks the Equipment item for an overlapping Reservation.
+5. The system checks the Equipment item for an overlapping confirmed Reservation.
 6. The system checks the Equipment item for an overlapping Maintenance Period.
 7. If either conflict exists, the system rejects the request and creates no Reservation.
 8. If concurrent requests conflict, the system confirms one request and rejects the other.

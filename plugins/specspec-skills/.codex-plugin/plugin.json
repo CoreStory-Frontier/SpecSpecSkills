@@ -1,7 +1,7 @@
 {
   "name": "specspec-skills",
-  "version": "0.2.0",
-  "description": "Create, review, and correct top-down SpecSpec design documents from L4 through L1.",
+  "version": "0.3.0",
+  "description": "Create and review SpecSpec designs, then build reference applications with code-derived L0 evidence.",
   "author": {
     "name": "Charath",
     "email": "charath@corestory.ai",
@@ -18,8 +18,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "SpecSpec Skills",
-    "shortDescription": "Create and review SpecSpec designs from L4 to L1.",
-    "longDescription": "Create, decompose, review, and correct SpecSpec product, system, component, and module documents.",
+    "shortDescription": "Design and implement SpecSpec reference applications.",
+    "longDescription": "Create, review, and correct L4-L1 designs. Build new reference applications, derive L0 from tested code, and review the full stack.",
     "developerName": "Charath",
     "category": "Productivity",
     "capabilities": [
@@ -30,7 +30,8 @@
     "defaultPrompt": [
       "Create a complete SpecSpec design from this application description.",
       "Review this SpecSpec design for architecture gaps.",
-      "Correct the findings in this SpecSpec review."
+      "Correct the findings in this SpecSpec review.",
+      "Implement this SpecSpec design as a new reference application."
     ]
   }
 }

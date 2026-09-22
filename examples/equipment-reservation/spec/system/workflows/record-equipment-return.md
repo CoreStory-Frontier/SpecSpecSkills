@@ -22,13 +22,13 @@ This workflow records the return of Equipment that an employee picked up.
 4. `[inferred]` The system checks that the Equipment Use record contains pickup and no return.
    - `[inferred]` If no pickup exists or a return already exists, the system records no return.
 5. The system records the return time in the Equipment Use record.
-6. `[inferred]` The system changes the associated Reservation to completed.
+6. The system completes a confirmed Reservation and preserves an invalid or cancelled Reservation state.
 7. `[inferred]` The custodian receives the recorded return result.
 
 # Outcomes
 
 - A recorded return appears in the Equipment item's use history.
-- `[inferred]` The associated Reservation becomes completed.
+- A confirmed Reservation becomes completed. An invalid or cancelled Reservation keeps its state.
 - `[inferred]` A return without one prior pickup is not recorded.
 
 # Related

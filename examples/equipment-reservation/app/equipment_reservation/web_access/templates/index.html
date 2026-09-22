@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equipment Reservation</title>
+<style>
+body{font:16px system-ui;color:#18332b;background:#f4f6f1;margin:0}main{max-width:1000px;margin:40px auto;padding:24px}
+h1{font-size:36px}section{background:white;border:1px solid #cdd8ce;border-radius:12px;padding:20px;margin:18px 0}
+label{display:block;margin:12px 0}input,select,button{font:inherit;padding:10px;border:1px solid #a7b9ad;border-radius:6px}
+button{background:#245a43;color:white;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere}.error{color:#a51c30}
+.notice{padding:16px;background:#fff0cc;border-radius:8px}small{display:block;color:#506558}
+</style></head><body><main>
+<small>REFERENCE APPLICATION · LOCAL DEMO</small><h1>Equipment Reservation</h1>
+<p class="notice">Demo identities simulate the workforce identity source. This is not a production login.</p>
+{% if error %}<p role="alert" class="error">{{ error }}</p>{% endif %}
+{% if result is defined and result is not none %}<section aria-label="Result"><h2>Result</h2><pre id="result">{{ result | tojson(indent=2) }}</pre></section>{% endif %}
+<section><h2>Equipment workspace</h2>
+<form id="workspace" method="post" action="/action/search">
+<input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Demo identity <select name="identity"><option value="">No identity</option>{% for name,roles in identities.items() %}<option value="{{ name }}">{{ name }} — {{ roles | join(', ') }}</option>{% endfor %}</select></label>
+<label>Equipment name <input name="name"></label><label>Description <input name="description"></label>
+<label>Equipment ID <input name="equipment_id" type="number" min="1"></label>
+<label>Start (UTC) <input name="start" type="datetime-local" step="1"></label>
+<label>End (UTC) <input name="end" type="datetime-local" step="1"></label>
+<label>Maintenance reason <input name="reason"></label>
+<label>Reservation ID <input name="reservation_id" type="number" min="1"></label>
+<label>Equipment Use ID <input name="use_id" type="number" min="1"></label>
+<label>Pickup time (UTC) <input name="pickup_time" type="datetime-local" step="1"></label>
+<label>Return time (UTC) <input name="return_time" type="datetime-local" step="1"></label>
+<p><button formaction="/action/pickup">Record pickup</button> <button formaction="/action/return">Record return</button> <button formaction="/action/history">Equipment history</button></p>
+<p><button formaction="/action/maintenance">Record maintenance</button> <button formaction="/action/cancel">Cancel invalid reservation</button> <button formaction="/action/reservations">All reservations</button></p>
+<p><button formaction="/action/add">Add equipment</button> <button formaction="/action/catalog">Equipment catalog</button></p>
+<p><button formaction="/action/search">Search availability</button> <button formaction="/action/reserve">Reserve equipment</button> <button formaction="/action/mine">My reservations</button></p>
+</form></section><small>All displayed timestamps use UTC. Adjacent reservations do not overlap.</small>
+</main></body></html>

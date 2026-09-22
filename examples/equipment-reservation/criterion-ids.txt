@@ -1,0 +1,8 @@
+# Short criterion IDs for the approved L4 Capabilities.
+# Format: <SHORT> = <CAPABILITY>, where <CAPABILITY> is the Capability file stem in capitals.
+FE = FIND-EQUIPMENT
+RE = RESERVE-EQUIPMENT
+VR = VIEW-RESERVATIONS
+ME = MANAGE-EQUIPMENT-AVAILABILITY
+TU = TRACK-EQUIPMENT-USE
+CE = CONTROL-EMPLOYEE-ACCESS

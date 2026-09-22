@@ -16,13 +16,13 @@ Employees secure the use of one equipment item without creating a reservation co
 
 - An employee selects one equipment item and a defined start and end time.
 - The product creates the reservation only when the item is available for the full period.
-- The product rejects a reservation that overlaps another reservation for the same item.
+- The product rejects a reservation that overlaps another confirmed reservation for the same item.
 - `[inferred]` The product rejects a reservation when the end time is not after the start time.
 
 # Acceptance
 
 - Given an equipment item is available for the full selected period, when an employee reserves it, then the product confirms the reservation for that item and period.
-- Given an existing reservation overlaps the selected period, when an employee tries to reserve the same item, then the product rejects the new reservation.
+- Given an existing confirmed reservation overlaps the selected period, when an employee tries to reserve the same item, then the product rejects the new reservation.
 - Given a maintenance period overlaps the selected period, when an employee tries to reserve the item, then the product rejects the reservation.
 - `[inferred]` Given the selected end time is not after the start time, when an employee submits the reservation, then the product rejects it.
 

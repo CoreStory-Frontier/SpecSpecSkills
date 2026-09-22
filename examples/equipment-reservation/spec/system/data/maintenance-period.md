@@ -25,19 +25,21 @@ A Maintenance Period blocks one equipment item for a defined start and end time.
 # Relationships
 
 - `[inferred]` Each Maintenance Period refers to one [Equipment](equipment.md) item.
-- A Maintenance Period can overlap and invalidate many [Reservations](reservation.md).
+- A Maintenance Period can overlap and invalidate many confirmed [Reservations](reservation.md).
 
 # Lifecycle
 
 - A custodian records the Maintenance Period.
 - The product makes the Equipment item unavailable for the period.
-- The product treats each overlapping Reservation as invalid.
+- The product treats each overlapping confirmed Reservation as invalid, including after pickup.
 
 # Invariants
 
 - An employee cannot create a Reservation that overlaps the Maintenance Period.
-- A later Maintenance Period makes each overlapping Reservation invalid.
+- A later Maintenance Period invalidates overlapping confirmed Reservations only.
+- Cancelled and completed Reservations keep their state.
 - `[inferred]` The end time is after the start time.
+- Periods include the start and exclude the end. Times are stored in UTC.
 
 # Related
 

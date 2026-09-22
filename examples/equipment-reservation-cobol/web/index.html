@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Equipment Reservation — COBOL reference</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Equipment Reservation</h1>
+    <p>COBOL / CICS reference implementation. Select an actor, then submit one action.</p>
+    <section>
+      <h2>Actor</h2>
+      <select id="actor">
+        <option value="ALICE">Alice — employee</option>
+        <option value="BOB">Bob — employee</option>
+        <option value="CASEY">Casey — custodian</option>
+        <option value="DREW">Drew — both roles</option>
+      </select>
+    </section>
+    <section>
+      <h2>Actions</h2>
+      <button data-action="SEARCH">Search</button>
+      <button data-action="RESERVE">Reserve</button>
+      <button data-action="MINE">My reservations</button>
+      <button data-action="ADD">Add equipment</button>
+      <button data-action="MAINT">Record maintenance</button>
+      <button data-action="CANCEL">Cancel invalid reservation</button>
+      <button data-action="PICKUP">Record pickup</button>
+      <button data-action="RETURN">Record return</button>
+      <button data-action="HISTORY">Equipment history</button>
+    </section>
+    <section id="fields"></section>
+    <section>
+      <button id="submit">Submit</button>
+    </section>
+    <pre id="result">No request sent.</pre>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

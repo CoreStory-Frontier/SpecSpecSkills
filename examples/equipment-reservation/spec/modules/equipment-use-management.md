@@ -19,7 +19,7 @@ pickup, return, and use-history behavior.
 - `[inferred]` Validate pickup and return eligibility with scheduling context.
 - `[inferred]` Record one pickup for an eligible Reservation.
 - `[inferred]` Record return only after pickup.
-- `[inferred]` Ask Scheduling Operations to complete the Reservation after a recorded return.
+- Ask Scheduling Operations to complete a confirmed Reservation after return; preserve invalid or cancelled states.
 - `[inferred]` Provide Reservation, pickup, and return history for an Equipment item.
 - `[inferred]` Produce candidate handoff-history signals.
 - `[inferred]` It does not create Reservations or Maintenance Periods.

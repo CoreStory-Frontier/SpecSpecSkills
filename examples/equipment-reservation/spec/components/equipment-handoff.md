@@ -18,7 +18,7 @@ reserved Equipment.
 - Act as the primary owner of Equipment Use data.
 - Record Equipment pickup for a Reservation.
 - Record Equipment return after pickup.
-- `[inferred]` Ask Equipment Scheduling to complete the Reservation after recording return.
+- Ask Equipment Scheduling to complete a confirmed Reservation after return; preserve invalid or cancelled states.
 - Provide Reservation, pickup, and return history for an Equipment item.
 - Use Equipment and Reservation identities owned by Equipment Scheduling.
 - `[inferred]` Apply the proposed handoff eligibility checks before pickup or return.

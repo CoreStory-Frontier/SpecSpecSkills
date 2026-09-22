@@ -33,9 +33,10 @@ A Reservation records an employee's use of one equipment item for a start and en
 # Lifecycle
 
 - The product confirms a Reservation after availability and access checks pass.
-- A later overlapping Maintenance Period makes the Reservation invalid.
+- A later overlapping Maintenance Period makes a confirmed Reservation invalid, including after pickup.
+- Cancelled and completed Reservations keep their state when maintenance is recorded.
 - A custodian can cancel an invalid Reservation.
-- `[inferred]` A Reservation becomes completed after the associated equipment return.
+- A confirmed Reservation becomes completed after return. Return preserves an invalid or cancelled state.
 
 # Invariants
 
@@ -43,6 +44,9 @@ A Reservation records an employee's use of one equipment item for a start and en
 - A new Reservation cannot overlap a Maintenance Period for the Equipment item.
 - When concurrent requests conflict, the product confirms one Reservation and rejects the other.
 - `[inferred]` The end time is after the start time.
+- Only confirmed Reservations block availability. Other states remain in history.
+- Periods include the start and exclude the end. Adjacent periods do not overlap.
+- Times are stored in UTC. Browser inputs show their time zone.
 
 # Related
 

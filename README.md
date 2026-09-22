@@ -3,7 +3,9 @@
 This repository provides agent skills for creating a top-down
 [SpecSpec](https://github.com/corestory-frontier/specspec) software design. The workflow starts
 with product intent at L4. It decomposes the design through the system, component, and module
-layers. It stops at L1.
+layers. The design workflow stops at L1. The separate `implement-spec` skill builds a new
+reference application, writes one test for every Capability Behavior bullet and Acceptance
+criterion, then derives L0 evidence from tested code.
 
 The skills use the portable `SKILL.md` format. The marketplace supports Codex, Claude Code, and
 GitHub Copilot CLI.
@@ -103,8 +105,8 @@ Architecture review and correction
 
 Each layer uses the approved layer above it. Layer skills run in sequence, not in parallel.
 
-The workflow does not generate L0 documents. L0 describes implemented source files and code
-symbols. Generate those documents from code after implementation exists.
+The design workflow does not generate L0 documents. Use `implement-spec` after the design is
+approved to build the application and generate L0 from its tested source files and code symbols.
 
 ## Layers
 
@@ -132,6 +134,7 @@ their concept types, and each concept's document sections.
 | `create-specspec-l1` | Approved L2 documents already exist. | Complete L2 set and linked L3 context | Modules and reciprocal L2 links |
 | `review-specspec-design` | You need an architecture review without edits. | L4-L1 bundle and, when available, the original input | Numbered findings with severity and correction criteria |
 | `correct-specspec-design` | A reviewer report contains valid findings. | Bundle and reviewer report | Corrected documents and a repeated review |
+| `implement-spec` | You want a new reference application from an approved design. | L4-L1 bundle and stack approval | Runnable code, one marked test per Behavior and Acceptance criterion, L0 evidence, and independent L0-L4 review |
 
 You can start with a layer-specific skill when the required higher layer already exists. Do not
 use a lower-layer skill when its input layer is incomplete.
@@ -169,6 +172,8 @@ Ask me before you change supplied product intent or a major architecture choice.
 
 ## Generated bundle
 
+### Design bundle
+
 A complete bundle has this general structure:
 
 ```text
@@ -197,6 +202,42 @@ spec/
 ```
 
 The `system/` directory contains only the concept directories used by the design.
+
+### Implement a design
+
+```text
+Use implement-spec with examples/equipment-reservation/spec/.
+Build a new reference application in equipment-reservation-app/.
+Propose the stack for my approval before coding.
+```
+
+The skill builds a small runnable user journey first. It writes one marked test for every
+Capability Behavior bullet and Acceptance criterion, then continues until all criteria pass.
+The test markers and `implementation-record.md` form the traceability record. It pauses for specification gaps or conflicts. Local dependencies are permitted;
+commits, pushes, and deployment need separate authorization.
+
+After tests pass, the skill checks criterion coverage, copies the design to a separate
+implementation bundle, adds `files/` for L0, and links Modules to observed source evidence. An independent agent reviews the code and
+the complete L0-L4 bundle. The input design remains available for design-only tools.
+
+New or modified files without a matching Git revision use explicitly uncommitted L0 evidence.
+The skill reports pending Git pinning and does not claim full upstream code-spec conformance.
+An unavailable independent reviewer or required test blocks completion.
+
+## Examples
+
+The repository contains three reference implementations of the same approved design:
+
+- `examples/equipment-reservation/` — Python, Flask, and SQLite. The full 90-test suite passes,
+  the code-derived L0 bundle is present, and the independent L0-L4 review passed.
+- `examples/equipment-reservation-cobol/` — IBM Enterprise COBOL, CICS, and DB2 for z/OS.
+  The COBOL source, schema, browser shell, JCL, and 50 marked criterion tests are present.
+  The workstation has no mainframe runtime, so execution and L0 derivation are blocked.
+- `examples/equipment-reservation-foxpro/` — Microsoft Visual FoxPro 9 and DBF tables.
+  The VFP source, data setup, browser shell, and 50 marked criterion tests are present.
+  The workstation has no VFP9 runtime, so execution and L0 derivation are blocked.
+
+Both examples use the same six Capabilities, three Components, and six Modules.
 
 ## Questions and assumptions
 
@@ -345,4 +386,7 @@ A tag that contains a hyphen, such as `v0.3.0-beta.1`, creates a prerelease.
 - The skills create a proposed design. They do not claim that code implements it.
 - The skills do not create source-file plans, code symbols, hashes, or path-and-line anchors.
 - The skills do not invent named vendors, legal duties, service levels, or numeric targets.
-- L1 is the terminal layer in this marketplace.
+- L1 is the terminal layer for the design skills. `implement-spec` extends an implementation copy
+  to L0 after tests pass.
+- `implement-spec` supports new reference applications. Existing application changes are outside
+  its current scope.

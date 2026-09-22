@@ -5,15 +5,15 @@
     "email": "charath@corestory.ai",
     "url": "https://github.com/charathram"
   },
-  "description": "Skills for top-down SpecSpec design from L4 through L1.",
-  "version": "0.2.0",
+  "description": "Skills for SpecSpec design and reference implementation with L0 evidence.",
+  "version": "0.3.0",
   "plugins": [
     {
       "name": "specspec-skills",
       "displayName": "SpecSpec Skills",
       "source": "./plugins/specspec-skills",
-      "description": "Create, decompose, review, and correct SpecSpec product, system, component, and module documents.",
-      "version": "0.2.0",
+      "description": "Create, review, and implement SpecSpec designs with tested code and L0 evidence.",
+      "version": "0.3.0",
       "author": {
         "name": "Charath",
         "email": "charath@corestory.ai",

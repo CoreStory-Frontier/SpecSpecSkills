@@ -35,7 +35,7 @@ Equipment identifies each physical item as a separate asset.
 # Invariants
 
 - Each physical item has a distinct Equipment identity.
-- An item is unavailable during an overlapping reservation.
+- An item is unavailable during an overlapping confirmed Reservation.
 - An item is unavailable during an overlapping maintenance period.
 
 # Related
