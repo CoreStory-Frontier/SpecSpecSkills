@@ -6,14 +6,14 @@
     "url": "https://github.com/charathram"
   },
   "description": "Skills for SpecSpec design and reference implementation with L0 evidence.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "plugins": [
     {
       "name": "specspec-skills",
       "displayName": "SpecSpec Skills",
       "source": "./plugins/specspec-skills",
       "description": "Create, review, and implement SpecSpec designs with tested code and L0 evidence.",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "author": {
         "name": "Charath",
         "email": "charath@corestory.ai",
