@@ -13,9 +13,18 @@ without changing documents. Use `correct-specspec-design` to resolve a reviewer 
 the review.
 
 For an existing codebase, use `code2specspec` to derive a source-backed L0-L4 bundle. Its
-`code2specspec-l0` through `code2specspec-l4` skills can also run one layer at a time.
-`code2specspec-review` checks the result against the code without editing it. This reverse
-workflow is separate from the proposed-design workflow above.
+layer skills can also run one layer at a time:
+
+1. `code2specspec-l0` records source files, symbols, and line-anchored evidence.
+2. `code2specspec-l1` derives Modules from the source and L0 inventory.
+3. `code2specspec-l2` derives Components from the observed Modules.
+4. `code2specspec-l3` describes observed system behavior and interfaces.
+5. `code2specspec-l4` describes source-backed product outcomes and limits.
+
+`code2specspec-review` checks source accuracy and gap coverage without editing the bundle.
+The master `code2specspec` skill runs the five layers in order, audits entry-to-output behavior,
+and then calls the reviewer. This reverse workflow is separate from the proposed-design workflow
+above.
 The repository examples contain separate `code-spec/` bundles and a comparison report at
 `examples/code2specspec-comparison.md`.
 When a comparison spec is supplied, `code2specspec` derives the source bundle first. It then

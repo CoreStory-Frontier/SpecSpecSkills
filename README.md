@@ -144,6 +144,13 @@ their concept types, and each concept's document sections.
 | `review-specspec-design` | You need an architecture review without edits. | L4-L1 bundle and, when available, the original input | Numbered findings with severity and correction criteria |
 | `correct-specspec-design` | A reviewer report contains valid findings. | Bundle and reviewer report | Corrected documents and a repeated review |
 | `implement-spec` | You want a new reference application from an approved design. | L4-L1 bundle and stack approval | Runnable code, one marked test per Behavior and Acceptance criterion, L0 evidence, and independent L0-L4 review |
+| `code2specspec` | You want a specification of an existing codebase. | Source root and optional comparison spec | Source-derived L0-L4 bundle, behavior gap report, and accuracy review |
+| `code2specspec-l0` | You need source-file evidence. | Codebase | L0 Source File documents with symbols and line anchors |
+| `code2specspec-l1` | You need actual module boundaries. | Codebase and L0 inventory | L1 Modules linked to source files |
+| `code2specspec-l2` | You need actual component boundaries. | Codebase and L1 Modules | L2 Components linked to Modules |
+| `code2specspec-l3` | You need observed system behavior. | Codebase and L0-L2 bundle | L3 system concepts linked to implementation evidence |
+| `code2specspec-l4` | You need observed product outcomes. | Codebase and L3 system concepts | L4 Product Overview and Capabilities with source-backed limits |
+| `code2specspec-review` | You need a read-only accuracy check. | Codebase and code-derived bundle | Source accuracy, coverage, and gap findings |
 
 You can start with a layer-specific skill when the required higher layer already exists. Do not
 use a lower-layer skill when its input layer is incomplete.
@@ -162,6 +169,14 @@ Continue an existing design:
 
 ```text
 Use create-specspec-l2 to decompose the approved L3 documents in spec/.
+```
+
+Document an existing application:
+
+```text
+Use code2specspec on examples/equipment-reservation-foxpro/app/.
+Write the code-derived bundle to examples/equipment-reservation-foxpro/code-spec/.
+Compare it with examples/equipment-reservation-foxpro/spec/ and report gaps.
 ```
 
 Review without changing files:
@@ -392,8 +407,9 @@ A tag that contains a hyphen, such as `v0.3.0-beta.1`, creates a prerelease.
 
 ## Design boundaries
 
-- The skills create a proposed design. They do not claim that code implements it.
-- The skills do not create source-file plans, code symbols, hashes, or path-and-line anchors.
+- The top-down design skills create a proposed design. They do not claim that code implements it.
+- The top-down design skills do not create source-file plans, code symbols, hashes, or path-and-line anchors.
+- The `code2specspec` skills record observed source evidence and separate it from supplied intent.
 - The skills do not invent named vendors, legal duties, service levels, or numeric targets.
 - L1 is the terminal layer for the design skills. `implement-spec` extends an implementation copy
   to L0 after tests pass.
