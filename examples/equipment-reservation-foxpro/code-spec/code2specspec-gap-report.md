@@ -1,0 +1,12 @@
+# Code to SpecSpec gap report: Visual FoxPro
+
+Source snapshot: `b49ac9d318000495dffc599116320a75fd08fd91`. This is a focused comparison with the supplied `spec/` design. Source paths were inspected; the Visual FoxPro runtime was unavailable. No runtime result is verified.
+
+| ID | Expected outcome and origin | Observed entry-to-output path and test scope | Status | Impact and correction target |
+|---|---|---|---|---|
+| F-001 | The supplied `find-equipment` Capability shows item availability. | `SearchEquipment` computes item values (`app/programs/EQOPS.PRG:4`), but `HandleAction` calls `HtmlResult`, which prints only status, message, and item count (`app/programs/EQWEB.PRG:52-69,119-125`). No browser assertion ran. | `partial` | Employees cannot see which item is available. Code: render item fields. |
+| F-002 | The supplied `view-reservations` Capability shows owned reservations. | `MyReservations` selects actor records (`app/programs/EQSHED.PRG:189`); `HtmlResult` prints only their count (`app/programs/EQWEB.PRG:119-125`). No browser assertion ran. | `partial` | Employees cannot review reservation details. Code: render owned rows. |
+| F-003 | The supplied `reserve-equipment` Capability expects a useful reservation result. | `Reserve` returns `rsv_id` (`app/programs/EQSHED.PRG:33`); `HtmlResult` does not print it (`app/programs/EQWEB.PRG:119-125`). No browser assertion ran. | `partial` | Employees cannot read the new ID from the browser result. Code: render the ID. |
+| F-004 | The supplied `track-equipment-use` Capability shows reservation, pickup, and return history. | Browser HISTORY calls `Execute` (`app/programs/EQWEB.PRG:58`), which calls `EquipmentHistory` (`app/programs/EQOPS.PRG:43-47`). `HandoffHistory` can compose use rows (`app/programs/EQHAND.PRG:92`) but is not on this route. `HtmlResult` shows only the row count. Tests call `HandoffHistory` directly (`app/tests/EQTEST.PRG:375,384,394,404`); they do not test browser HISTORY. No target test ran. | `partial` | The browser omits use history and record detail. Code: route to the combined history and render its rows; add a browser-path test. |
+
+The supplied design also contains goals, non-goals, ADR rationale, an external workforce identity Interface, and Observability concepts. Source alone cannot establish those as implemented product intent. Keep them in the supplied design; seek a user decision before adding them as observed code-derived claims.

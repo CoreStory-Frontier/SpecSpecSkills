@@ -1,7 +1,7 @@
 {
   "name": "specspec-skills",
   "displayName": "SpecSpec Skills",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Create and review SpecSpec designs, then build reference applications with code-derived L0 evidence.",
   "author": {
     "name": "Charath",

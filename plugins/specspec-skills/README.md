@@ -12,6 +12,15 @@ Use `review-specspec-design` to inspect a complete L4-L1 design. It reports arch
 without changing documents. Use `correct-specspec-design` to resolve a reviewer report and repeat
 the review.
 
+For an existing codebase, use `code2specspec` to derive a source-backed L0-L4 bundle. Its
+`code2specspec-l0` through `code2specspec-l4` skills can also run one layer at a time.
+`code2specspec-review` checks the result against the code without editing it. This reverse
+workflow is separate from the proposed-design workflow above.
+The repository examples contain separate `code-spec/` bundles and a comparison report at
+`examples/code2specspec-comparison.md`.
+When a comparison spec is supplied, `code2specspec` derives the source bundle first. It then
+checks each expected outcome and writes a gap report. Unimplemented intent stays in that report.
+
 You can also start at a lower layer when the required higher-layer documents already exist.
 
 The design workflow stops at L1. Use `implement-spec` with an approved L4-L1 bundle to build a

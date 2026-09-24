@@ -10,6 +10,15 @@ criterion, then derives L0 evidence from tested code.
 The skills use the portable `SKILL.md` format. The marketplace supports Codex, Claude Code, and
 GitHub Copilot CLI.
 
+For an existing codebase, use `code2specspec` to generate L0-L4 documents from source evidence.
+Use `code2specspec-l0` through `code2specspec-l4` for one layer, and `code2specspec-review` to
+check a code-derived bundle against the source.
+The three example applications have separate `code-spec/` bundles. See the
+[comparison report](examples/code2specspec-comparison.md) for differences from their existing
+`spec/` designs and the resulting skill changes.
+The master skill now checks expected outcomes against reachable code and writes a gap report
+when a supplied design or test expectation is not implemented.
+
 ## Quick start
 
 Install the `specspec-skills` plugin with one of the supported hosts. Then ask the host to run the
